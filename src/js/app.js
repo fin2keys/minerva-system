@@ -14,12 +14,19 @@ const formatDate = date => {
     return `${formatDateUnit(hours)}:${formatDateUnit(minutes)}:${formatDateUnit(seconds)}`
 }
 
+const renderSavedCars = () => {
+    const savedCars = getSavedCars()
+    savedCars.forEach(car => addCarToList(car))
+}
+
+const getSavedCars = () => localStorage.safeSaveCars ? JSON.parse(localStorage.safeSaveCars) : []
+
 const addCarToList = (car) => {
     const row = document.createElement('tr')
     row.innerHTML = `
         <td>${car.carModel}</td>
         <td>${car.carLicense}</td>
-        <td>${formatDate(car.time)}</td>
+        <td>${car.time}</td>
         <td>
             <input type="button" value="X">
         </td>
@@ -27,6 +34,8 @@ const addCarToList = (car) => {
     const teste = getConst("#user-saved-infos").appendChild(row)
     console.log(teste)
 }
+
+renderSavedCars()
 
 userSendButton.addEventListener('click', event => { 
     const carInfos = [
@@ -49,9 +58,10 @@ userSendButton.addEventListener('click', event => {
     }
 
     const newCar = {carModel: carInfos[0], carLicense: carInfos[1], time: new Date()}
+    newCar.time = formatDate(newCar.time)
     addCarToList(newCar)
     
-    const safeSaveCars = localStorage.safeSaveCars ? JSON.parse(localStorage.safeSaveCars) : []
+    const safeSaveCars = getSavedCars()
     safeSaveCars.push(newCar)
 
     localStorage.safeSaveCars = JSON.stringify(safeSaveCars)

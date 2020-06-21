@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="src/css/main-minera-system-style-transitions.css" rel="stylesheet">
+    <link href="src/css/main-minera-system-style-media-query.css" rel="stylesheet">
+    <link href="src/css/main-minera-system-style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="main-page-container-content">
+        <div class="title-page-container">
+            <h1 class="main-page-title">MINERVA <span class="hide">ESTACIONAMENTO</span> <span class="small-text">SYSTEM 1.0</span></h1>
+        </div>
+        <div class="input-user-info-container">
+            <div class="car-user-info-container">
+                <label class="generic-labels-user-info">MODELO DO VEICULO</label>
+                <input type="text" class="input-user-info-generic-style" id="input-user-car-model-one" minlength="1" maxlength="20">
+            </div>
+            <div class="car-user-info-container">
+                <label class="generic-labels-user-info">PLACA DO VEICULO</label>
+                <input type="text" class="input-user-info-generic-style" id="input-user-car-model-two" minlength="1" maxlength="9">
+            </div>
+            <input type="button" class="input-user-info-button-generic-style" value="ADICIONAR">
+        </div>
+        <thead class="server-user-saved-info">
+            <table>
+            <tr>
+                <th>VEICULO</th>
+                <th>PLACA</th>
+                <th>HORARIO</th>
+                <th>AÇÕES</th>
+            </tr>
+        </thead>
+        <tbody id="user-saved-infos"></tbody>
+    </table>
+    </section>
+    <script src="src/js/app.js"></script>
+</body>
+</html>

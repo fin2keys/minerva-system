@@ -1,0 +1,10 @@
+@media screen and (max-width: 900px) { 
+    span.hide {
+        display: none;
+    }
+}
+@media screen and (max-width: 600px) { 
+    div.input-user-info-container {
+        width: calc(50% + 200px);
+    }
+}

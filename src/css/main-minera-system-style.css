@@ -1,0 +1,87 @@
+:root {
+    --bg-main-color: #404040;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-page-container-content {
+    width: calc(50vw + 200px);
+    height: 800px;
+    background-color: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+.input-user-info-container {
+    width: calc(50% + 300px);
+    height: 300px;
+    background-color: var(--bg-main-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px;
+}
+.car-user-info-container {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.input-user-info-generic-style {
+    border: 1px solid #252525;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+    outline: none;
+    height: 30px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    background-color: #252525;
+    color: white;
+    transition: ease 500ms;
+}
+.generic-labels-user-info {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1.3rem;
+    user-select: none;
+    color: white;
+}
+.input-user-info-button-generic-style {
+    width: 120px;
+    height: 60px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: ease 250ms;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1rem;
+    background-color: #303030;
+    color: white;
+    margin-top: 5px;
+    padding: 10px;
+}
+.main-page-title {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 3.5rem;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+}
+.main-page-title > span.small-text {
+    font-size: 2rem;
+}

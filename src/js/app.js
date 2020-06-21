@@ -51,17 +51,19 @@ userSendButton.addEventListener('click', event => {
         getConst("#input-user-car-model-two").value
     ]
 
-    
+    const inputError = (input) => {
+        getConst(input).style.animation = 'shake-horizontal 500ms ease'
+        getConst(input).style.border = '1px solid red'
 
-    if(!carInfos[0] || !carInfos[1]) { //A otimizar.
-        getConst("#input-user-car-model-one").style.animation = 'shake-horizontal 500ms ease'
-        getConst("#input-user-car-model-one").style.border = '1px solid red'
-        getConst("#input-user-car-model-two").style.animation = 'shake-horizontal 500ms ease'
-        getConst("#input-user-car-model-two").style.border = '1px solid red'
         setTimeout(() => {
-            getConst("#input-user-car-model-one").style.border = '1px solid #252525'
-            getConst("#input-user-car-model-two").style.border = '1px solid #252525'
+            getConst(input).style.animation = ''
+            getConst(input).style.border = '1px solid #252525'
         }, 500);
+    }
+
+    if(!carInfos[0] || !carInfos[1]) { 
+        inputError("#input-user-car-model-one")
+        inputError("#input-user-car-model-two")
         return;
     }
 

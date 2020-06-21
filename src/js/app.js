@@ -19,6 +19,14 @@ const renderSavedCars = () => {
     savedCars.forEach(car => addCarToList(car))
 }
 
+const checkOut = info => {
+    const license = info[1].textContent
+    const savedCars = getSavedCars().filter(cars => cars.license !== license)
+    console.log(savedCars)
+    localStorage.savedCars = JSON.stringify(savedCars)
+    console.log(license, savedCars)
+}
+
 const getSavedCars = () => localStorage.safeSaveCars ? JSON.parse(localStorage.safeSaveCars) : []
 
 const addCarToList = (car) => {
@@ -28,11 +36,11 @@ const addCarToList = (car) => {
         <td>${car.carLicense}</td>
         <td>${car.time}</td>
         <td>
-            <input type="button" value="X">
+            <input type="button" class="delete-button" value="X">
         </td>
     `
-    const teste = getConst("#user-saved-infos").appendChild(row)
-    console.log(teste)
+    const userSavedAllInfos = getConst("#user-saved-infos").appendChild(row)
+    console.log(userSavedAllInfos)
 }
 
 renderSavedCars()
@@ -79,4 +87,10 @@ userInterface.addEventListener('change', ({target}) => {
     if(changedElement == 'INPUT') {
         target.value = target.value.toUpperCase()
     }
+    
+
+})
+
+getConst("#user-saved-infos").addEventListener('click', ({target}) => {
+    event.target.tagName === 'INPUT' ? checkOut(target.parentElement.parentElement.cells) : null
 })

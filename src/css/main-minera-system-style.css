@@ -85,3 +85,27 @@ body {
 .main-page-title > span.small-text {
     font-size: 2rem;
 }
+table {
+    width: calc(50% + 300px);
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1.2rem;
+}
+tr {
+    background-color: tomato;
+}
+th {
+    background-color: #202020;
+    color: white;
+}
+td {
+    background-color: #444444;
+    height: 30px;
+    text-align: center;
+    color: white;
+}
+td > input[type="button"] {
+    border: none;
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+}

@@ -16,15 +16,16 @@ const formatDate = date => {
 
 const renderSavedCars = () => {
     const savedCars = getSavedCars()
+    getConst("#user-saved-infos").innerHTML = '';
     savedCars.forEach(car => addCarToList(car))
 }
 
 const checkOut = info => {
     const license = info[1].textContent
-    const savedCars = getSavedCars().filter(cars => cars.license !== license)
-    console.log(savedCars)
-    localStorage.savedCars = JSON.stringify(savedCars)
-    console.log(license, savedCars)
+
+    const garage = getSavedCars().filter(car => car.carLicense !== license)
+    localStorage.safeSaveCars = JSON.stringify(garage);
+    renderSavedCars()
 }
 
 const getSavedCars = () => localStorage.safeSaveCars ? JSON.parse(localStorage.safeSaveCars) : []
@@ -40,7 +41,6 @@ const addCarToList = (car) => {
         </td>
     `
     const userSavedAllInfos = getConst("#user-saved-infos").appendChild(row)
-    console.log(userSavedAllInfos)
 }
 
 renderSavedCars()
@@ -75,7 +75,6 @@ userSendButton.addEventListener('click', event => {
     safeSaveCars.push(newCar)
 
     localStorage.safeSaveCars = JSON.stringify(safeSaveCars)
-    console.log(safeSaveCars)
 
     getConst("#input-user-car-model-one").value = ""
     getConst("#input-user-car-model-two").value = ""
@@ -83,8 +82,6 @@ userSendButton.addEventListener('click', event => {
 
 userInterface.addEventListener('change', ({target}) => {
     const changedElement = event.target.tagName
-    const userCarPlate = document.getElementById('input-user-car-model-two').value
-    console.log(userCarPlate)
 
     if(changedElement == 'INPUT') {
         target.value = target.value.toUpperCase()
